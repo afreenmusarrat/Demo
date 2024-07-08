@@ -4,17 +4,62 @@ if answer is not null then Greet them using their name.
 -->
 
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting Prompt</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 20px;
+      }
 
-<h1>The prompt() Method</h1>
+      button {
+        background-color: #3676cf;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
 
-<p>Click the button to demonstrate the prompt box.</p>
+      button:hover {
+        background-color: #4889e5;
+      }
 
-<button>Try it</button>
+      #greeting {
+        font-size: 32px;
+        font-weight: bold;
+        color: #3676cf;
+        opacity: 0;
+        transition: opacity 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The prompt() Method</h1>
 
-<script>
-</script>
+    <p>Click the button to demonstrate the prompt box.</p>
 
-</body>
+    <button id="greetButton">Try it</button>
+
+    <p id="greeting"></p>
+
+    <script>
+      document
+        .getElementById("greetButton")
+        .addEventListener("click", function () {
+          let name = prompt("Please enter your name : ");
+          if (name !== null && name.trim() !== "") {
+            let greetingElement = document.getElementById("greeting");
+            greetingElement.innerText = `Hello, ${name}!`;
+            greetingElement.style.opacity = 1;
+          }
+        });
+    </script>
+  </body>
 </html>
